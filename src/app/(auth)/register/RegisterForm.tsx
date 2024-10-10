@@ -17,6 +17,7 @@ import { registerFormSchema } from "@/schema/auth";
 import { Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { register } from "@/lib/authenticaton";
+import toast from "react-hot-toast";
 
 export default function RegisterForm() {
   const form = useForm<z.infer<typeof registerFormSchema>>({
@@ -32,9 +33,9 @@ export default function RegisterForm() {
     const res = await register(data);
 
     if (res.status === "FAIL") {
-      console.log('error', res.message)
+      toast.error(res.message || "An error occurred.");
     } else {
-      console.log('successfully registered')
+      toast.success("You have successfully registered.");
       router.push("/dashboard");
     }
   };

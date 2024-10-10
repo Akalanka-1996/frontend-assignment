@@ -29,7 +29,6 @@ export const register = async (data: {
   email: string;
   password: string;
 }) => {
-    console.log('data', data)
   const res = await signUp(data);
 
   if (res.status === "FAIL") {
