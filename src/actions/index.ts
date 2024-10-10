@@ -28,3 +28,17 @@ export const signUp = async (data: SignUpData): Promise<AuthResponseType> => {
     return error as AuthResponseType;
   }
 };
+
+export const signIn = async (
+  email: string,
+  password: string
+): Promise<AuthResponseType> => {
+  try {
+    const res = await axios.post("api/v1/user/login", { email, password });
+    return res.data;
+  } catch (error) {
+    console.error(error);
+
+    return error as AuthResponseType;
+  }
+};
