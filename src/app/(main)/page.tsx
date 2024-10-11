@@ -10,15 +10,17 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Location } from "@/types/location";
+import LogoutButton from "@/components/LogoutButton";
 
 const Page = async () => {
   const locations = await getLocations();
 
   return (
     <div className="p-6">
-      <h1 className="text-2xl font-semibold mb-6 text-gray-800">
-        Locations Dashboard
-      </h1>
+      <div className="flex justify-between items-center mb-6">
+        <h1 className="text-2xl font-semibold text-gray-800">Locations Dashboard</h1>
+        <LogoutButton />
+      </div>
       <div className="overflow-x-auto">
         <Table className="min-w-full bg-white border border-gray-200 shadow-md">
           <TableHeader className="bg-gray-100">

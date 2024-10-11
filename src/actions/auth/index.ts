@@ -42,3 +42,15 @@ export const signIn = async (
     return error as AuthResponseType;
   }
 };
+
+export const logoutUser = async (
+): Promise<AuthResponseType> => {
+  try {
+    const res = await axios.post("api/v1/user/logout");
+    return res.data;
+  } catch (error) {
+    console.error(error);
+
+    return error as AuthResponseType;
+  }
+};

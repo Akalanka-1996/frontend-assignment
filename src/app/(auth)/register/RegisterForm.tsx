@@ -36,7 +36,7 @@ export default function RegisterForm() {
       toast.error(res.message || "An error occurred.");
     } else {
       toast.success("You have successfully registered.");
-      router.push("/dashboard");
+      router.push("/");
     }
   };
 

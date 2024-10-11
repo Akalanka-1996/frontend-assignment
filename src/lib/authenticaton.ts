@@ -2,7 +2,7 @@
 
 import { cookies } from "next/headers";
 import { JWTPayload, SignJWT, jwtVerify } from "jose";
-import { signIn, signUp } from "@/actions/auth";
+import { signIn, signUp, logoutUser } from "@/actions/auth";
 import { NextRequest, NextResponse } from "next/server";
 
 const secretKey = process.env.JWT_SECRET || "secret123";
@@ -102,4 +102,17 @@ export async function updateSession(request: NextRequest) {
   const response = NextResponse.next();
 
   return response;
+}
+
+
+export async function logout() {
+  const sessionCookie = cookies().get("session")?.value;
+
+  if (!sessionCookie) return null;
+
+  await logoutUser()
+
+  // Destroy the session
+  cookies().set("session", "", { expires: new Date(0) });
+
 }
