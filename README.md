@@ -18,7 +18,7 @@ API_URL=http://localhost:3002
 JWT_SECRET=
 BASE_URL=http://localhost:3000
 ```
-You can add a random secret value for JWT secret. Please note that there is aleary an example env file in the repository.
+You can add a random secret value for JWT secret. Please note that there is aleady an example env file in the repository.
 
 ## Step 4: Run the project by following command
 
