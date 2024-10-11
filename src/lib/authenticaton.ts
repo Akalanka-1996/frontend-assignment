@@ -2,7 +2,7 @@
 
 import { cookies } from "next/headers";
 import { JWTPayload, SignJWT, jwtVerify } from "jose";
-import { signIn, signUp } from "@/actions";
+import { signIn, signUp } from "@/actions/auth";
 import { NextRequest, NextResponse } from "next/server";
 
 const secretKey = process.env.JWT_SECRET || "secret123";
